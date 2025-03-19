@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,7 +30,12 @@ public class MasteringStreams {
                 new Car("hatchback", "Toyota", "Type-R", 1450)
         );
 
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, 4, 5, 10));
+        List<Integer> numbers = new ArrayList<>(Arrays.asList(3, 1, 4, 10, 5));
+        List<Integer> sortedNumbers = numbers.stream().sorted(Comparator.reverseOrder()).toList();
+        System.out.println("sorted: " + sortedNumbers);
+
+        Collections.sort(numbers, Comparator.reverseOrder());
+        System.out.println("sorted 2: " + numbers);
 
         List<Car> sedanCars = filterCarsByType(cars, "sedan");
         List<String> result = flatMapTypeFromList(cars);
