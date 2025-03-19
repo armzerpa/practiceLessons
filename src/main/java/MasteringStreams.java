@@ -49,6 +49,9 @@ public class MasteringStreams {
                 Collectors.toMap(Car::make, Car::engineCapacity)
         ));
         System.out.println(groupedCars);
+
+        List<Car> sortedCars = cars.stream().sorted(Comparator.comparing(Car::type)).toList();
+        System.out.println(sortedCars);
     }
 }
 
